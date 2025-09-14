@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo: Proyecto Polen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Honeycomb Hues -->
+    <!-- Application Structure Plan: Se ha diseñado una aplicación web de una sola página (SPA) con un flujo vertical y navegación lateral fija para presentar el protocolo del proyecto de forma clara y profesional. La estructura sigue una narrativa lógica: empieza con la visión general, detalla el problema y los objetivos, explica la mecánica del juego (gameplay), el modelo de negocio, los aspectos técnicos, y finaliza con el roadmap y las métricas. Esta estructura se eligió para facilitar la comprensión secuencial del proyecto, permitiendo al usuario navegar libremente entre secciones. Las interacciones (hover en tarjetas, visualización del core loop, un gráfico conceptual para métricas) buscan hacer la información más digerible y atractiva que un documento estático. -->
+    <!-- Visualization & Content Choices: 
+        - Problema: Goal=Informar. Method=Tarjetas con iconos. Interaction=Hover. Justification=Visualizar los componentes del problema de forma rápida.
+        - Objetivos: Goal=Organizar. Method=Grid de tarjetas. Interaction=Hover. Justification=Separar claramente el objetivo general de los específicos.
+        - Core Loop: Goal=Organizar/Mostrar Flujo. Method=Diagrama de flujo con HTML/CSS. Interaction=Ninguna. Justification=Presentar el ciclo del juego de forma simple y visual sin librerías externas.
+        - Métricas de Éxito: Goal=Comparar/Informar. Method=Gráfico de Donut (Chart.js). Interaction=Tooltip al pasar el ratón. Justification=Visualizar la distribución conceptual del enfoque de las métricas (Juego, Educación, Ética) para dar una idea del equilibrio del proyecto.
+        - Roadmap: Goal=Mostrar Cambio/Tiempo. Method=Línea de tiempo vertical con HTML/CSS. Interaction=Hover. Justification=Presentar el plan de desarrollo de forma cronológica e intuitiva. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .bg-honeycomb {
+            background-color: #FFFBEB;
+        }
+        .text-honey-dark {
+            color: #7B3F00;
+        }
+        .text-honey-medium {
+            color: #B8621B;
+        }
+        .bg-honey-accent {
+            background-color: #FFC107;
+        }
+        .border-honey-accent {
+            border-color: #FFC107;
+        }
+        .nav-link.active {
+            background-color: #FFC107;
+            color: #7B3F00;
+            font-weight: 600;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 50%;
+            left: -0.625rem;
+            top: 0;
+            background-color: #FFC107;
+            border: 4px solid #FFFBEB;
+        }
+    </style>
+</head>
+<body class="bg-honeycomb text-honey-dark">
+
+    <div class="flex flex-col md:flex-row">
+        <nav id="navbar" class="w-full md:w-64 bg-white/80 backdrop-blur-md shadow-lg md:h-screen md:sticky top-0 p-4 md:p-6 flex-shrink-0 z-20">
+            <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-honey-accent rounded-full flex items-center justify-center mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-honey-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7.014A8.003 8.003 0 0117.657 18.657z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1014.12 11.88l-4.242 4.242z" />
+                    </svg>
+                </div>
+                <h1 class="text-xl font-bold text-honey-dark">Proyecto Polen</h1>
+            </div>
+            <ul class="space-y-2">
+                <li><a href="#vision" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Visión</a></li>
+                <li><a href="#problematica" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Problemática</a></li>
+                <li><a href="#objetivos" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Objetivos</a></li>
+                <li><a href="#gameplay" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Gameplay</a></li>
+                <li><a href="#educacion" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Educación</a></li>
+                <li><a href="#monetizacion" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Monetización</a></li>
+                <li><a href="#tecnico" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Diseño Técnico</a></li>
+                <li><a href="#metricas" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Métricas de Éxito</a></li>
+                <li><a href="#roadmap" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Roadmap</a></li>
+            </ul>
+        </nav>
+
+        <main class="flex-1 p-6 md:p-10 lg:p-12">
+            
+            <section id="vision" class="mb-16 scroll-mt-20">
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-yellow-200/50">
+                    <h2 class="text-3xl font-bold text-honey-dark mb-4">Visión del Proyecto</h2>
+                    <p class="text-lg text-honey-medium leading-relaxed">
+                        Crear un juego en Roblox que prioriza la <span class="font-semibold bg-honey-accent/50 px-1 rounded">diversión</span> para luego <span class="font-semibold bg-honey-accent/50 px-1 rounded">educar</span>. Los jugadores aprenderán de forma interactiva por qué las abejas son fundamentales para los ecosistemas y la seguridad alimentaria. El proyecto busca generar conciencia desde edades tempranas y probar un modelo de negocio sostenible basado en microtransacciones puramente cosméticas.
+                    </p>
+                </div>
+            </section>
+
+            <section id="problematica" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-honey-dark mb-2">Problemática y Justificación</h2>
+                <p class="text-honey-medium mb-6">El proyecto aborda una crisis ecológica real y la falta de conciencia sobre ella en las nuevas generaciones.</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border border-yellow-200/50 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold text-honey-dark mb-3">El Problema</h3>
+                        <p class="text-honey-medium">La disminución alarmante de las poblaciones de abejas a nivel mundial debido a factores como la pérdida de hábitat, el uso de pesticidas y la falta de diversidad floral. Esto se agrava por un desconocimiento generalizado entre el público infantil sobre la importancia crítica de los polinizadores.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border border-yellow-200/50 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold text-honey-dark mb-3">Nuestra Propuesta de Valor</h3>
+                        <p class="text-honey-medium">Un simulador de abejas divertido y accesible en Roblox. Los jugadores coleccionan y cuidan abejas, polinizan flores y expanden sus panales. Las misiones del juego conectan las acciones virtuales con hábitos positivos del mundo real, como plantar flores nativas y respetar las colmenas.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="objetivos" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-honey-dark mb-6">Objetivos del Proyecto</h2>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-yellow-200/50 mb-6">
+                    <h3 class="text-2xl font-bold text-honey-dark mb-3">Objetivo General</h3>
+                    <p class="text-lg text-honey-medium">Desarrollar un videojuego entretenido y educativo en la plataforma Roblox para concienciar a niños y jóvenes sobre la importancia de las abejas y los polinizadores, fomentando un cambio positivo de actitud hacia la conservación del medio ambiente a través de mecánicas de juego inmersivas y un modelo de negocio ético.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border border-yellow-200/50">
+                        <h4 class="font-bold text-honey-dark mb-2">1. Educar de Forma Integrada</h4>
+                        <p class="text-sm text-honey-medium">Integrar conceptos sobre biodiversidad, polinización y ecología directamente en las mecánicas jugables, evitando que la educación se sienta como una tarea separada de la diversión.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border border-yellow-200/50">
+                        <h4 class="font-bold text-honey-dark mb-2">2. Fomentar la Jugabilidad</h4>
+                        <p class="text-sm text-honey-medium">Crear un núcleo jugable (core loop) sencillo, adictivo y gratificante que mantenga a los jugadores comprometidos a largo plazo a través de sistemas de progresión y personalización.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border border-yellow-200/50">
+                        <h4 class="font-bold text-honey-dark mb-2">3. Probar un Modelo Sostenible</h4>
+                        <p class="text-sm text-honey-medium">Implementar un modelo de monetización ético, basado exclusivamente en cosméticos, que demuestre la viabilidad de financiar el desarrollo continuo y futuros proyectos educativos sin recurrir a prácticas "pay-to-win".</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="gameplay" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-honey-dark mb-6">Núcleo Jugable (Core Loop)</h2>
+                 <p class="text-honey-medium mb-6 text-center max-w-2xl mx-auto">El ciclo de juego está diseñado para ser simple, repetible y adictivo, con capas de profundidad que se revelan a medida que el jugador progresa.</p>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-yellow-200/50">
+                    <div class="flex flex-col md:flex-row items-center justify-around space-y-4 md:space-y-0 md:space-x-4 text-center">
+                        <div class="flex flex-col items-center p-2">
+                            <div class="text-3xl mb-2">🗺️</div>
+                            <span class="font-semibold">1. Explorar</span>
+                            <p class="text-sm text-honey-medium">Descubrir biomas y flores</p>
+                        </div>
+                        <div class="text-2xl text-honey-medium font-light hidden md:block">→</div>
+                        <div class="flex flex-col items-center p-2">
+                            <div class="text-3xl mb-2">🌼</div>
+                            <span class="font-semibold">2. Recolectar</span>
+                            <p class="text-sm text-honey-medium">Obtener polen y néctar</p>
+                        </div>
+                        <div class="text-2xl text-honey-medium font-light hidden md:block">→</div>
+                        <div class="flex flex-col items-center p-2">
+                            <div class="text-3xl mb-2">🏠</div>
+                            <span class="font-semibold">3. Volver al Panal</span>
+                            <p class="text-sm text-honey-medium">Depositar recursos</p>
+                        </div>
+                        <div class="text-2xl text-honey-medium font-light hidden md:block">→</div>
+                        <div class="flex flex-col items-center p-2">
+                            <div class="text-3xl mb-2">🍯</div>
+                            <span class="font-semibold">4. Producir Miel</span>
+                            <p class="text-sm text-honey-medium">Recurso principal</p>
+                        </div>
+                        <div class="text-2xl text-honey-medium font-light hidden md:block">→</div>
+                        <div class="flex flex-col items-center p-2">
+                            <div class="text-3xl mb-2">✨</div>
+                            <span class="font-semibold">5. Mejorar</span>
+                            <p class="text-sm text-honey-medium">Panales, abejas y cosméticos</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="educacion" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-honey-dark mb-6">Capas Educativas</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border border-yellow-200/50">
+                        <h3 class="text-xl font-bold text-honey-dark mb-2">Tarjetas "Dato Abeja"</h3>
+                        <p class="text-honey-medium">Tips breves y curiosidades que aparecen al completar misiones, conectando logros del juego con datos reales sobre polinizadores.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border border-yellow-200/50">
+                        <h3 class="text-xl font-bold text-honey-dark mb-2">Jardín de Biodiversidad</h3>
+                        <p class="text-honey-medium">Un espacio personalizable donde los jugadores desbloquean y plantan diferentes especies de flores, cada una con efectos únicos en el juego.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border border-yellow-200/50">
+                        <h3 class="text-xl font-bold text-honey-dark mb-2">Misiones con Impacto</h3>
+                        <p class="text-honey-medium">Tareas especiales que simulan acciones de conservación reales, como crear "corredores de polinización" o limpiar residuos.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-2xl shadow-lg border border-yellow-200/50">
+                        <h3 class="text-xl font-bold text-honey-dark mb-2">Quiz Opcional</h3>
+                        <p class="text-honey-medium">Preguntas rápidas y no competitivas sobre abejas y ecología que otorgan pequeñas recompensas cosméticas como stickers o emotes.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="monetizacion" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-honey-dark mb-6">Monetización Ética (No Pay-to-Win)</h2>
+                 <p class="text-honey-medium mb-6 max-w-2xl">El modelo económico está diseñado para ser justo y transparente, asegurando que el éxito en el juego dependa de la habilidad y dedicación, no del gasto.</p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-md text-center">
+                        <div class="text-4xl mb-3">🎨</div>
+                        <h4 class="font-bold text-honey-dark">Solo Cosméticos</h4>
+                        <p class="text-sm text-honey-medium">Skins para abejas, efectos de partículas, emotes y decoraciones para el panal.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md text-center">
+                        <div class="text-4xl mb-3">🚀</div>
+                        <h4 class="font-bold text-honey-dark">Boosts de Calidad de Vida</h4>
+                        <p class="text-sm text-honey-medium">Atajos visuales o slots de decoración extra. No alteran la progresión ni dan ventajas.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md text-center">
+                        <div class="text-4xl mb-3">💖</div>
+                        <h4 class="font-bold text-honey-dark">Pases de Apoyo</h4>
+                        <p class="text-sm text-honey-medium">Insignias especiales "Apoya a las abejas" para quienes deseen contribuir más.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tecnico" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-honey-dark mb-6">Diseño Técnico</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-honey-dark mb-4">Arquitectura Modular (Roblox/Lua)</h3>
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded-lg shadow-sm border-l-4 border-honey-accent">RaritySystem</div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm border-l-4 border-honey-accent">BeeController</div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm border-l-4 border-honey-accent">FlowerSpawner</div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm border-l-4 border-honey-accent">HiveManager</div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm border-l-4 border-honey-accent">DataStoreService</div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm border-l-4 border-honey-accent">EconomyService</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-honey-dark mb-4">Estructuras de Datos y Algoritmos</h3>
+                        <ul class="list-disc list-inside space-y-2 text-honey-medium bg-white p-4 rounded-lg shadow-sm">
+                            <li><strong>Colas:</strong> para gestionar tareas de las abejas.</li>
+                            <li><strong>Máquinas de Estados Finitos (FSM):</strong> para la IA simple de las abejas.</li>
+                            <li><strong>Pathfinding ligero:</strong> para el movimiento de las entidades.</li>
+                            <li><strong>Tablas Hash:</strong> para búsqueda rápida de tipos de flores.</li>
+                            <li><strong>Buenas Prácticas:</strong> Validación en servidor, límites anti-spam, telemetría.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="metricas" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-honey-dark mb-6">Métricas de Éxito</h2>
+                 <p class="text-honey-medium mb-8 max-w-2xl">El éxito del proyecto se medirá equilibrando la diversión, el impacto educativo y la sostenibilidad del modelo de negocio. Este gráfico muestra el enfoque conceptual que daremos a cada área.</p>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="chart-container w-full max-w-sm mx-auto h-80">
+                        <canvas id="metricsChart"></canvas>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-lg text-honey-dark flex items-center"><span class="w-4 h-4 rounded-full bg-[#FFC107] mr-2"></span>Juego</h4>
+                            <p class="text-honey-medium pl-6">Retención D1/D7, duración de sesión, % de misiones completadas.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-honey-dark flex items-center"><span class="w-4 h-4 rounded-full bg-[#B8621B] mr-2"></span>Educación</h4>
+                            <p class="text-honey-medium pl-6">% de quizzes respondidos, uso del Jardín de biodiversidad.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-honey-dark flex items-center"><span class="w-4 h-4 rounded-full bg-[#7B3F00] mr-2"></span>Ética Monetaria</h4>
+                            <p class="text-honey-medium pl-6">Conversión a cosméticos sin afectar la retención de jugadores no-pagos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="roadmap" class="scroll-mt-20">
+                <h2 class="text-3xl font-bold text-honey-dark mb-6">Roadmap Sugerido (MVP en 4 Semanas)</h2>
+                <div class="relative pl-8 border-l-2 border-dashed border-honey-accent/50">
+                    <div class="mb-8 timeline-item">
+                        <h4 class="font-bold text-xl text-honey-dark">Semana 1: Fundación</h4>
+                        <p class="text-honey-medium">Core loop básico (recolectar polen → miel → upgrade), UI mínima y sistema de guardado de progreso.</p>
+                    </div>
+                    <div class="mb-8 timeline-item">
+                        <h4 class="font-bold text-xl text-honey-dark">Semana 2: Contenido Inicial</h4>
+                        <p class="text-honey-medium">Implementación del RaritySystem, 3 tipos de abejas, 3 tipos de flores, 5 misiones iniciales y 10 "Datos Abeja".</p>
+                    </div>
+                    <div class="mb-8 timeline-item">
+                        <h4 class="font-bold text-xl text-honey-dark">Semana 3: Monetización y Expansión</h4>
+                        <p class="text-honey-medium">Tienda de cosméticos funcionales con emotes, y la primera versión del Jardín de biodiversidad.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-xl text-honey-dark">Semana 4: Pulido y Eventos</h4>
+                        <p class="text-honey-medium">Lanzamiento de un evento estacional corto, implementación del quiz opcional, y pulido general de UX y accesibilidad.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('metricsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Juego', 'Educación', 'Ética Monetaria'],
+                    datasets: [{
+                        label: 'Enfoque de Métricas',
+                        data: [45, 30, 25],
+                        backgroundColor: [
+                            '#FFC107',
+                            '#B8621B',
+                            '#7B3F00'
+                        ],
+                        borderColor: '#FFFBEB',
+                        borderWidth: 4,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            titleFont: {
+                                weight: 'bold',
+                            },
+                            bodyFont: {
+                                size: 14,
+                            },
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '% de enfoque';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.4
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if(window.innerWidth < 768) {
+                       const navbar = document.getElementById('navbar');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
