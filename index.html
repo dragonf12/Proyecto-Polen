@@ -55,33 +55,35 @@
         }
     </style>
 </head>
-<body class="bg-honeycomb text-honey-dark">
+<body class="text-honey-dark">
 
-    <div class="flex flex-col md:flex-row">
-        <nav id="navbar" class="w-full md:w-64 bg-white/80 backdrop-blur-md shadow-lg md:h-screen md:sticky top-0 p-4 md:p-6 flex-shrink-0 z-20">
-            <div class="flex items-center mb-6">
-                <div class="w-10 h-10 bg-honey-accent rounded-full flex items-center justify-center mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-honey-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7.014A8.003 8.003 0 0117.657 18.657z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1014.12 11.88l-4.242 4.242z" />
-                    </svg>
+    <div class="flex flex-col md:flex-row min-h-screen bg-white/80 backdrop-blur-md">
+        <div class="w-full md:w-64 flex-shrink-0">
+            <nav id="navbar" class="md:h-screen md:sticky top-0 p-4 md:p-6 z-20 md:shadow-lg">
+                <div class="flex items-center mb-6">
+                    <div class="w-10 h-10 bg-honey-accent rounded-full flex items-center justify-center mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-honey-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7.014A8.003 8.003 0 0117.657 18.657z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1014.12 11.88l-4.242 4.242z" />
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-bold text-honey-dark">Proyecto Polen</h1>
                 </div>
-                <h1 class="text-xl font-bold text-honey-dark">Proyecto Polen</h1>
-            </div>
-            <ul class="space-y-2">
-                <li><a href="#vision" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Visión</a></li>
-                <li><a href="#problematica" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Problemática</a></li>
-                <li><a href="#objetivos" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Objetivos</a></li>
-                <li><a href="#gameplay" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Gameplay</a></li>
-                <li><a href="#educacion" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Educación</a></li>
-                <li><a href="#monetizacion" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Monetización</a></li>
-                <li><a href="#tecnico" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Diseño Técnico</a></li>
-                <li><a href="#metricas" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Métricas de Éxito</a></li>
-                <li><a href="#roadmap" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Roadmap</a></li>
-            </ul>
-        </nav>
+                <ul class="space-y-2">
+                    <li><a href="#vision" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Visión</a></li>
+                    <li><a href="#problematica" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Problemática</a></li>
+                    <li><a href="#objetivos" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Objetivos</a></li>
+                    <li><a href="#gameplay" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Gameplay</a></li>
+                    <li><a href="#educacion" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Educación</a></li>
+                    <li><a href="#monetizacion" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Monetización</a></li>
+                    <li><a href="#tecnico" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Diseño Técnico</a></li>
+                    <li><a href="#metricas" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Métricas de Éxito</a></li>
+                    <li><a href="#roadmap" class="nav-link block px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-yellow-100">Roadmap</a></li>
+                </ul>
+            </nav>
+        </div>
 
-        <main class="flex-1 p-6 md:p-10 lg:p-12">
+        <main class="flex-1 p-6 md:p-10 lg:p-12 bg-honeycomb">
             
             <section id="vision" class="mb-16 scroll-mt-20">
                 <div class="bg-white p-8 rounded-2xl shadow-lg border border-yellow-200/50">
@@ -102,7 +104,7 @@
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-lg border border-yellow-200/50 transform hover:scale-105 transition-transform duration-300">
                         <h3 class="text-xl font-bold text-honey-dark mb-3">Nuestra Propuesta de Valor</h3>
-                        <p class="text-honey-medium">Un simulador de abejas divertido y accesible en Roblox. Los jugadores coleccionan y cuidan abejas, polinizan flores y expanden sus panales. Las misiones del juego conectan las acciones virtuales con hábitos positivos del mundo real, como plantar flores nativas y respetar las colmenas.</p>
+                        <p class="text-honey-medium">Un videojuego en Roblox permite enseñar jugando, con mecánicas que traducen polinizar y cuidar colmenas en retos breves y motivadores. Al aprovechar una plataforma popular, se facilita el acceso y la atención. El aprendizaje se integra al juego y promueve hábitos reales: plantar flores nativas y respetar colmenas.</p>
                     </div>
                 </div>
             </section>
@@ -113,6 +115,12 @@
                     <h3 class="text-2xl font-bold text-honey-dark mb-3">Objetivo General</h3>
                     <p class="text-lg text-honey-medium">Desarrollar un videojuego entretenido y educativo en la plataforma Roblox para concienciar a niños y jóvenes sobre la importancia de las abejas y los polinizadores, fomentando un cambio positivo de actitud hacia la conservación del medio ambiente a través de mecánicas de juego inmersivas y un modelo de negocio ético.</p>
                 </div>
+
+
+
+
+
+                <h2 class="text-3xl font-bold text-honey-dark mb-6">Objetivos especificos</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-white p-6 rounded-2xl shadow-lg border border-yellow-200/50">
                         <h4 class="font-bold text-honey-dark mb-2">1. Educar de Forma Integrada</h4>
@@ -275,7 +283,7 @@
                     </div>
                     <div class="mb-8 timeline-item">
                         <h4 class="font-bold text-xl text-honey-dark">Semana 3: Monetización y Expansión</h4>
-                        <p class="text-honey-medium">Tienda de cosméticos funcionales con emotes, y la primera versión del Jardín de biodiversidad.</p>
+                        <p class="text-honey-medium">Tienda de cosméticos funcionales y la primera versión del Juego.</p>
                     </div>
                     <div class="timeline-item">
                         <h4 class="font-bold text-xl text-honey-dark">Semana 4: Pulido y Eventos</h4>
@@ -376,3 +384,4 @@
     </script>
 </body>
 </html>
+
